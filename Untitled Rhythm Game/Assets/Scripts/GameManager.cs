@@ -34,13 +34,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Fretboard()
-    {
-
-
-
-
-    }
+    
 
 
     IEnumerator PlayMusic()
@@ -48,20 +42,8 @@ public class GameManager : MonoBehaviour
         gameStarted = true;
         while (gameStarted)
         {
-            
-            
-            
-
-             spawnPoint[spawnIndex] = Instantiate(notes[notesIndex], transform.position, transform.rotation);
-             yield return new WaitForSeconds(3);
-             spawnPoint[spawnIndex] = Instantiate(notes[notesIndex], transform.position, transform.rotation);
-             yield return new WaitForSeconds(3);
-             spawnPoint[spawnIndex] = Instantiate(notes[notesIndex], transform.position, transform.rotation);
-            yield return new WaitForSeconds(3);
             spawnPoint[spawnIndex] = Instantiate(notes[notesIndex], transform.position, transform.rotation);
             yield return new WaitForSeconds(3);
-            
-            
         }
 
 
