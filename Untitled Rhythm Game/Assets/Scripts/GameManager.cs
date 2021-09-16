@@ -41,12 +41,27 @@ public class GameManager : MonoBehaviour
 
     public void Fretboard()
     {
+        playNotes.clip = musicNotes[musicIndex];
+        playNotes.Play();
+
+        if (musicIndex == musicNotes.Length - 1)
+        {
+            musicIndex = 0;
+        }
+        else
+        {
+            musicIndex++;
+        }
+        
+        
+        /*
         Debug.Log("Getting to fretboard");
         for (int i = 0; i < musicNotes.Length - 1; musicIndex++)
         {
             playNotes.clip = musicNotes[i];
             playNotes.Play();
         }
+        */
     }
     
 
@@ -54,10 +69,10 @@ public class GameManager : MonoBehaviour
     IEnumerator PlayMusic()
     {
         gameStarted = true;
-        if (gameStarted)
+        while (gameStarted)
         {
-            spawnPoint[spawnIndex] = Instantiate(notes[notesIndex], transform.position, transform.rotation);
-            yield return new WaitForSeconds(3);
+            Instantiate(notes[notesIndex], transform.position, transform.rotation);
+            yield return new WaitForSeconds(0.5f);
         }
 
 
