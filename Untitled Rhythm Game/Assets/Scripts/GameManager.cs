@@ -7,34 +7,72 @@ public class GameManager : MonoBehaviour
 {
     public GameObject[] spawnPoint;
     public GameObject[] notes;
+    public AudioClip[] musicNotes;
+    public AudioSource backgroundBeat;
+    public AudioSource playNotes;
     public bool gameStarted;
+    private int spawnIndex;
+    private int notesIndex;
+    public int musicIndex = 0;
+
+
+    void Start()
+    {
+        playNotes.clip = musicNotes[0];
+    }
+
+
+
 
     void Update()
     {
         if (Input.GetKeyDown("space"))
-        StartCoroutine(PlayMusic());
-
+        {
+            StartCoroutine(PlayMusic());
+        }
+        spawnIndex = Random.Range(0, spawnPoint.Length);
+        notesIndex = Random.Range(0, notes.Length);
+        
+        if (Input.GetKeyDown("enter"))
+        {
+            gameStarted = false;
+        }
     }
 
-    void Fretboard()
+    public void Fretboard()
     {
+        playNotes.clip = musicNotes[musicIndex];
+        playNotes.Play();
 
-
-
-
+        if (musicIndex == musicNotes.Length - 1)
+        {
+            musicIndex = 0;
+        }
+        else
+        {
+            musicIndex++;
+        }
+        
+        
+        /*
+        Debug.Log("Getting to fretboard");
+        for (int i = 0; i < musicNotes.Length - 1; musicIndex++)
+        {
+            playNotes.clip = musicNotes[i];
+            playNotes.Play();
+        }
+        */
     }
+    
 
 
     IEnumerator PlayMusic()
     {
         gameStarted = true;
-        if (gameStarted)
+        while (gameStarted)
         {
-            
-            spawnPoint[0] = Instantiate(notes[0], transform.position, transform.rotation);
-            yield return new WaitForSeconds(0);
-            spawnPoint[1] = Instantiate(notes[1], transform.position, transform.rotation);
-            gameStarted = false;
+            Instantiate(notes[notesIndex], transform.position, transform.rotation);
+            yield return new WaitForSeconds(0.5f);
         }
 
 
