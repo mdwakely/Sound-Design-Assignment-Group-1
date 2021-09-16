@@ -1106,6 +1106,7 @@ MonoBehaviour:
   playNotes: {fileID: 2041671857}
   gameStarted: 0
   musicIndex: 0
+  maxMusic: 5
 --- !u!82 &2041671857
 AudioSource:
   m_ObjectHideFlags: 0

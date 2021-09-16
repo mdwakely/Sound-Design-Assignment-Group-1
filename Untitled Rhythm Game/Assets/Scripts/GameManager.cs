@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private int spawnIndex;
     private int notesIndex;
     public int musicIndex = 0;
+    public int maxMusic;
 
 
     void Start()
@@ -36,6 +37,10 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown("enter"))
         {
             gameStarted = false;
+        }
+        if (musicIndex > maxMusic)
+        {
+            musicIndex = 0;
         }
     }
 

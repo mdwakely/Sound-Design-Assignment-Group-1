@@ -27,6 +27,7 @@ public class FretOne : MonoBehaviour
         if (other.gameObject.tag == "Note")
         {
             hitNote = false;
+            manager.GetComponent<GameManager>().musicIndex++;
         }
     }
     
