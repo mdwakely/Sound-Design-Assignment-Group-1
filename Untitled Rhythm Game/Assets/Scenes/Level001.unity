@@ -169,9 +169,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3fd0bff46a9faec479f263928868ef20, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 03b76eacd0f86714790ee9fceefb3405, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -690,6 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 2041671854}
+  noteNumber: 0
 --- !u!23 &1371909088
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -890,6 +891,7 @@ GameObject:
   - component: {fileID: 1746280223}
   - component: {fileID: 1746280222}
   - component: {fileID: 1746280221}
+  - component: {fileID: 1746280225}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -973,6 +975,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1746280225
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746280220}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1932809960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,20 +1294,23 @@ MonoBehaviour:
   - {fileID: 3459130795259471088, guid: ec558888b6baad7429dbae6309065d38, type: 3}
   - {fileID: 3992544710284788369, guid: 81ab97b5e743c4c4c9e27147f62a4198, type: 3}
   - {fileID: 4252297820373748470, guid: 656b334c21cadca44921b6e25eb44d78, type: 3}
+  fretOne: {fileID: 1371909084}
   musicNotes:
-  - {fileID: 8300000, guid: 273468c0d20d0164f886e37abe8da155, type: 3}
-  - {fileID: 8300000, guid: ef402d50fc6acd244889d46972c8fcd7, type: 3}
-  - {fileID: 8300000, guid: fe010d07fa4b2c442b195aeaf69b0dfe, type: 3}
-  - {fileID: 8300000, guid: 2f26acb5d308c2542ade67c0951e9261, type: 3}
+  - {fileID: 8300000, guid: 53dec8aca9f7bbe499406b1b47b6ce26, type: 3}
+  - {fileID: 8300000, guid: 4a7fb9c97f338114bacd72c7284383a3, type: 3}
+  - {fileID: 8300000, guid: 2c2e15446ad2f4a459dad74a52403e90, type: 3}
+  - {fileID: 8300000, guid: a1d622e617c205c4fb203926c4306ba0, type: 3}
   - {fileID: 8300000, guid: e2b1fa7a3cd9ffa4e824d8b89c777432, type: 3}
   failNotes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 9aeda5e02183f2741802a913cc8a4b39, type: 3}
+  - {fileID: 8300000, guid: a201c53ad01510d48afaf76ee52869c7, type: 3}
+  - {fileID: 8300000, guid: 4b329567ac14c484fa033d0ce943219c, type: 3}
   backgroundBeat: {fileID: 385814167}
   playNotes: {fileID: 2041671857}
+  failClips: {fileID: 1746280225}
   gameStarted: 0
   musicIndex: 0
+  failIndex: 0
   maxMusic: 5
 --- !u!82 &2041671857
 AudioSource:
@@ -1223,7 +1324,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -6,6 +6,7 @@ public class FretOne : MonoBehaviour
 {
 
     public GameObject manager;
+    public int noteNumber = 0;
     bool hitNote;
     GameObject noteBlock;
 
@@ -27,15 +28,16 @@ public class FretOne : MonoBehaviour
         if (other.gameObject.tag == "Note")
         {
             hitNote = false;
-            manager.GetComponent<GameManager>().musicIndex++;
+            manager.GetComponent<GameManager>().FailNote();
+            
         }
     }
     
-    private void Update()
+    public void Update()
     {
         if (hitNote && Input.GetKeyDown(KeyCode.A))
         {
-            manager.GetComponent<GameManager>().musicIndex = 4;
+            manager.GetComponent<GameManager>().musicIndex = noteNumber;
             manager.GetComponent<GameManager>().Fretboard();
             Destroy(noteBlock.gameObject);
             hitNote = false;

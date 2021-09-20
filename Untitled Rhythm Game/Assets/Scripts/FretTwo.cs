@@ -27,7 +27,7 @@ public class FretTwo : MonoBehaviour
         if (other.gameObject.tag == "Note")
         {
             hitNote = false;
-            manager.GetComponent<GameManager>().musicIndex++;
+            manager.GetComponent<GameManager>().FailNote();
         }
     }
     
