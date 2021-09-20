@@ -35,6 +35,7 @@ public class FretFour : MonoBehaviour
     {
         if (hitNote && Input.GetKeyDown(KeyCode.F))
         {
+            manager.GetComponent<GameManager>().musicIndex = 3;
             manager.GetComponent<GameManager>().Fretboard();
             Destroy(noteBlock.gameObject);
             hitNote = false;
