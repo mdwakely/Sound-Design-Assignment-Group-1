@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: b660f9ec9529c584fab0bd2517c01c8e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Flynn
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a6aa147d9c963d747a0b1233c752e05c, type: 3}
+  - {fileID: 12800000, guid: b02bedf5f60e3784e9c85476f6f86638, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

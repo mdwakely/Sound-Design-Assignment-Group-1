@@ -6,6 +6,7 @@ public class FretFour : MonoBehaviour
 {
 
     public GameObject manager;
+    public int noteNumber = 0;
     bool hitNote;
     GameObject noteBlock;
 

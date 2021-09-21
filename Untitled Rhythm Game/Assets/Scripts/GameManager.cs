@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject[] spawnPoint;
     public GameObject[] notes;
     public GameObject fretOne;
+    public GameObject fretTwo;
+    public GameObject fretThree;
+    public GameObject fretFour;
     public AudioClip[] musicNotes;
     public AudioClip[] failNotes;
+    public AudioClip[] comboNotes;
     public AudioSource backgroundBeat;
     public AudioSource playNotes;
     public AudioSource failClips;
+    public AudioSource crowdCheer;
+    public AudioSource crowdBoo;
+    public AudioSource comboDing;
+    public Canvas pauseScreen;
+    public Canvas inGameCanvas;
+    public Text score;
+    public Text combo;
+    public Text ready;
     //public AudioSource beatLayer;
     public bool gameStarted;
     //public bool beatPlaying;
@@ -20,14 +33,32 @@ public class GameManager : MonoBehaviour
     private int notesIndex;
     public int musicIndex = 0;
     public int failIndex = 0;
+    int comboNoteIndex = 0;
+    int points = 25;
+    int currentPoints;
+    int comboMulti = 1;
+    int comboIndex = 0;
     public int maxMusic;
-
+    FretOne fretOneNote;
+    FretTwo fretTwoNote;
+    FretThree fretThreeNote;
+    FretFour fretFourNote;
 
 
 
     void Start()
     {
+        pauseScreen.enabled = false;
         playNotes.clip = musicNotes[0];
+        fretOneNote = fretOne.GetComponent<FretOne>();
+        fretTwoNote = fretTwo.GetComponent<FretTwo>();
+        fretThreeNote = fretThree.GetComponent<FretThree>();
+        fretFourNote = fretFour.GetComponent<FretFour>();
+        StartCoroutine(PlayMusic());
+        backgroundBeat.Play();
+        currentPoints = 0;
+        score.text = ("Score: " + currentPoints);
+        combo.text = ("Combo: " + comboMulti + "x");
     }
 
 
@@ -35,82 +66,85 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            backgroundBeat.Play();
+
+        
+            
             //beatPlaying = true;
-            StartCoroutine(PlayMusic());
-        }
+            
+        
         spawnIndex = Random.Range(0, spawnPoint.Length);
         notesIndex = Random.Range(0, notes.Length);
         failIndex = Random.Range(0, failNotes.Length);
+        comboNoteIndex = Random.Range(0, comboNotes.Length);
 
-        if (Input.GetKeyDown("enter"))
+        if (Input.GetKeyDown("escape"))
         {
+            Time.timeScale = 0;
+            pauseScreen.enabled = true;
+            backgroundBeat.Pause();
             
-            gameStarted = false;
         }
         if (musicIndex > maxMusic)
         {
             musicIndex = 0;
         }
+        
     }
 
+    public void Resume()
+    {
+        pauseScreen.enabled = false;
+        Time.timeScale = 1;
+        backgroundBeat.Play();
+    }
 
-    
+    public void Exit()
+    {
+        Time.timeScale = 0;
+        SceneManager.LoadScene(0);
+    }
 
     public void Fretboard()
     {
         playNotes.clip = musicNotes[musicIndex];
         playNotes.Play();
-        /*
-        if (musicIndex == musicNotes.Length - 1)
+        currentPoints = currentPoints + points;
+        score.text = ("Score: " + (currentPoints * comboMulti));
+        if (comboIndex == 10)
         {
-            musicIndex = 0;
+            comboMulti++;
+            comboIndex = 0;
+            comboDing.clip = comboNotes[comboNoteIndex];
+            comboDing.Play();
         }
         else
         {
-            musicIndex++;
+            comboIndex++;
         }
-        
-        
-        /*
-        Debug.Log("Getting to fretboard");
-        for (int i = 0; i < musicNotes.Length - 1; musicIndex++)
-        {
-            playNotes.clip = musicNotes[i];
-            playNotes.Play();
-        }
-        */
+        combo.text = ("Combo: " + comboMulti + "x");
     }
-   
-    /*
-    IEnumerator BeatPlay()
-    {
-        while (beatPlaying)
-        {
-            yield return new WaitForSeconds(1);
-            beatLayer.Play();
-        }
-    }
-    */
+        
+    
+
 
 
     public void FailNote()
     {
         failClips.clip = failNotes[failIndex];
         failClips.Play();
+        comboMulti = 1;
+        combo.text = ("Combo: " + comboMulti + "x");
     }
 
 
     IEnumerator PlayMusic()
     {
-        gameStarted = true;
-        while (gameStarted)
-        {
+        
+        
+        
 
-            yield return new WaitForSeconds(4);
-            
+            yield return new WaitForSeconds(8);
+        ready.enabled = false;
             Instantiate(notes[0], transform.position, transform.rotation);
             yield return new WaitForSeconds(0.5f);
             Instantiate(notes[0], transform.position, transform.rotation);
@@ -151,7 +185,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
 
             yield return new WaitForSeconds(2);
-            fretOne.GetComponent<FretOne>().noteNumber = 4;
+            fretOneNote.noteNumber = 4;
 
             Instantiate(notes[0], transform.position, transform.rotation);
             yield return new WaitForSeconds(0.5f);
@@ -177,11 +211,41 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             Instantiate(notes[2], transform.position, transform.rotation);
             yield return new WaitForSeconds(0.5f);
-        }
+        
 
 
 
     }
+    /*
+        if (musicIndex == musicNotes.Length - 1)
+        {
+            musicIndex = 0;
+        }
+        else
+        {
+            musicIndex++;
+        }
+        
+        
+        /*
+        Debug.Log("Getting to fretboard");
+        for (int i = 0; i < musicNotes.Length - 1; musicIndex++)
+        {
+            playNotes.clip = musicNotes[i];
+            playNotes.Play();
+        }
+        */
 
+
+    /*
+    IEnumerator BeatPlay()
+    {
+        while (beatPlaying)
+        {
+            yield return new WaitForSeconds(1);
+            beatLayer.Play();
+        }
+    }
+    */
 
 }
