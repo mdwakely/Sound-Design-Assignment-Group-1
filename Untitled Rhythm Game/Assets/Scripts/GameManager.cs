@@ -161,10 +161,15 @@ public class GameManager : MonoBehaviour
         combo.text = ("Combo: " + comboMulti + "x");
         failLimit++;
         comboCheerIndex = 0;
+        if (extraCheer.isPlaying)
+        {
+            extraCheer.Stop();
+        }
         if (!crowdBoo.isPlaying && failLimit == 8)
         {
             crowdBoo.Play();
         }
+        
     }
 
 
@@ -174,7 +179,7 @@ public class GameManager : MonoBehaviour
         
         
 
-            yield return new WaitForSeconds(8);
+            yield return new WaitForSeconds(3);
         ready.enabled = false;
             Instantiate(notes[0], transform.position, transform.rotation);
             yield return new WaitForSeconds(0.5f);
