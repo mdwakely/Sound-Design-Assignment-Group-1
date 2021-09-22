@@ -244,9 +244,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 03b76eacd0f86714790ee9fceefb3405, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d83d5c72124df3f48b85f7eac96e2a62, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -436,11 +436,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 07ec52e056c6dd34bbdfabd3575fd178, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1848,11 +1848,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 751b68d40c8fb684ba7be7ee9b291844, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2151,7 +2151,7 @@ GameObject:
   - component: {fileID: 1746280221}
   - component: {fileID: 1746280225}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: FailCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2245,7 +2245,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2791,13 +2791,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a1d622e617c205c4fb203926c4306ba0, type: 3}
   - {fileID: 8300000, guid: e2b1fa7a3cd9ffa4e824d8b89c777432, type: 3}
   failNotes:
-  - {fileID: 8300000, guid: 9aeda5e02183f2741802a913cc8a4b39, type: 3}
-  - {fileID: 8300000, guid: a201c53ad01510d48afaf76ee52869c7, type: 3}
-  - {fileID: 8300000, guid: 4b329567ac14c484fa033d0ce943219c, type: 3}
+  - {fileID: 8300000, guid: ced215cd821503c48a05f563cd578791, type: 3}
   comboNotes:
-  - {fileID: 8300000, guid: 780def757012ccf4eb1b077e85056e7d, type: 3}
   - {fileID: 8300000, guid: 277f195a3d151ad4793bed29f1570b90, type: 3}
   - {fileID: 8300000, guid: 88f01fd255c7fc14b9836f262596cd77, type: 3}
+  - {fileID: 8300000, guid: 780def757012ccf4eb1b077e85056e7d, type: 3}
   backgroundBeat: {fileID: 385814167}
   playNotes: {fileID: 2041671857}
   failClips: {fileID: 1746280225}
@@ -2812,6 +2810,7 @@ MonoBehaviour:
   gameStarted: 0
   musicIndex: 0
   failIndex: 0
+  failLimit: 0
   maxMusic: 5
 --- !u!82 &2041671857
 AudioSource:

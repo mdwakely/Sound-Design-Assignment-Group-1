@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     private int notesIndex;
     public int musicIndex = 0;
     public int failIndex = 0;
+    public int failLimit = 0;
     int comboNoteIndex = 0;
     int points = 25;
     int currentPoints;
@@ -116,12 +117,26 @@ public class GameManager : MonoBehaviour
             comboIndex = 0;
             comboDing.clip = comboNotes[comboNoteIndex];
             comboDing.Play();
+            comboNoteIndex++;
         }
         else
         {
             comboIndex++;
         }
+        if (comboNoteIndex > 2)
+        {
+            comboNoteIndex = 0;
+        }
         combo.text = ("Combo: " + comboMulti + "x");
+        if (crowdBoo.isPlaying)
+        {
+            failLimit--;
+            if (failLimit == 0)
+            {
+                crowdBoo.Stop();
+            }
+        }
+        
     }
         
     
@@ -134,6 +149,11 @@ public class GameManager : MonoBehaviour
         failClips.Play();
         comboMulti = 1;
         combo.text = ("Combo: " + comboMulti + "x");
+        failLimit++;
+        if (!crowdBoo.isPlaying && failLimit == 8)
+        {
+            crowdBoo.Play();
+        }
     }
 
 
@@ -211,9 +231,78 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             Instantiate(notes[2], transform.position, transform.rotation);
             yield return new WaitForSeconds(0.5f);
-        
-
-
+        Instantiate(notes[0], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[1], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[3], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[2], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[0], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[1], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[3], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[2], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[0], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[1], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[3], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[2], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[0], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[1], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[3], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[2], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[0], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[1], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[3], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[2], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[0], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[1], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[3], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[2], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[0], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[1], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[3], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[2], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[0], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[1], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[3], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[2], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[0], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[1], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[3], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(notes[2], transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
 
     }
     /*
