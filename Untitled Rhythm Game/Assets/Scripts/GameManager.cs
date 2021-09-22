@@ -15,12 +15,14 @@ public class GameManager : MonoBehaviour
     public AudioClip[] musicNotes;
     public AudioClip[] failNotes;
     public AudioClip[] comboNotes;
+    public AudioClip[] comboCheer;
     public AudioSource backgroundBeat;
     public AudioSource playNotes;
     public AudioSource failClips;
     public AudioSource crowdCheer;
     public AudioSource crowdBoo;
     public AudioSource comboDing;
+    public AudioSource extraCheer;
     public Canvas pauseScreen;
     public Canvas inGameCanvas;
     public Text score;
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
     int currentPoints;
     int comboMulti = 1;
     int comboIndex = 0;
+    int comboCheerIndex = 0;
     public int maxMusic;
     FretOne fretOneNote;
     FretTwo fretTwoNote;
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour
         notesIndex = Random.Range(0, notes.Length);
         failIndex = Random.Range(0, failNotes.Length);
         comboNoteIndex = Random.Range(0, comboNotes.Length);
+
 
         if (Input.GetKeyDown("escape"))
         {
@@ -118,6 +122,9 @@ public class GameManager : MonoBehaviour
             comboDing.clip = comboNotes[comboNoteIndex];
             comboDing.Play();
             comboNoteIndex++;
+            extraCheer.clip = comboCheer[comboCheerIndex];
+            extraCheer.Play();
+            comboCheerIndex++;
         }
         else
         {
@@ -136,7 +143,10 @@ public class GameManager : MonoBehaviour
                 crowdBoo.Stop();
             }
         }
-        
+        if (comboCheerIndex > comboCheer.Length)
+        {
+            comboCheerIndex = 0;
+        }
     }
         
     
@@ -150,6 +160,7 @@ public class GameManager : MonoBehaviour
         comboMulti = 1;
         combo.text = ("Combo: " + comboMulti + "x");
         failLimit++;
+        comboCheerIndex = 0;
         if (!crowdBoo.isPlaying && failLimit == 8)
         {
             crowdBoo.Play();
