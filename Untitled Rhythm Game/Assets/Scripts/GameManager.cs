@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject fretTwo;
     public GameObject fretThree;
     public GameObject fretFour;
+    
     public AudioClip[] musicNotes;
     public AudioClip[] failNotes;
     public AudioClip[] comboNotes;
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     public Text ready;
     //public AudioSource beatLayer;
     public bool gameStarted;
+    
     //public bool beatPlaying;
     private int spawnIndex;
     private int notesIndex;
@@ -93,7 +95,10 @@ public class GameManager : MonoBehaviour
         {
             musicIndex = 0;
         }
-        
+        if (comboCheerIndex >= comboCheer.Length)
+        {
+            comboCheerIndex = 0;
+        }
     }
 
     public void Resume()
@@ -143,10 +148,7 @@ public class GameManager : MonoBehaviour
                 crowdBoo.Stop();
             }
         }
-        if (comboCheerIndex > comboCheer.Length)
-        {
-            comboCheerIndex = 0;
-        }
+        
     }
         
     
@@ -220,7 +222,7 @@ public class GameManager : MonoBehaviour
             Instantiate(notes[3], transform.position, transform.rotation);
             yield return new WaitForSeconds(0.5f);
 
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             fretOneNote.noteNumber = 4;
 
             Instantiate(notes[0], transform.position, transform.rotation);
