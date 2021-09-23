@@ -6,27 +6,25 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     // Establish game objects so they can be set in the inspector
-    public GameObject playGame = null;
-    public GameObject exit = null;
+/*    public GameObject playGame = null;
+    public GameObject exit = null;*/
 
-    void Start()
+/*    void Start()
     {
         // Establish each game object in the code
         playGame = GameObject.Find("PlayGame");
         exit = GameObject.Find("Exit");
-    }
+    }*/
 
     // Goes to the first level (scene)
     public void PlayGame()
     {
-        SceneManager.LoadScene("LEVEL_001");
-        Debug.Log("Pressed Start Button");
+        SceneManager.LoadScene("Level001");
     }
 
     // Exits the game
     public void Exit()
     {
         Application.Quit();
-        Debug.Log("Pressed Quit Button");
     }
 }

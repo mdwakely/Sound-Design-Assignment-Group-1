@@ -36,7 +36,7 @@ public class FretThree : MonoBehaviour
     {
         if (hitNote && Input.GetKeyDown(KeyCode.D))
         {
-            manager.GetComponent<GameManager>().musicIndex = 2;
+            manager.GetComponent<GameManager>().musicIndex = noteNumber;
             manager.GetComponent<GameManager>().Fretboard();
             Destroy(noteBlock.gameObject);
             hitNote = false;

@@ -6737,7 +6737,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 07ec52e056c6dd34bbdfabd3575fd178, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -23584,13 +23584,30 @@ MonoBehaviour:
   fretThree: {fileID: 1971433561}
   fretFour: {fileID: 1578895363}
   musicNotes:
-  - {fileID: 8300000, guid: 9faa1cd4f0f3925478387e3ab8f5cffb, type: 3}
-  - {fileID: 8300000, guid: 99362cc67e90da14d8c01c0db3c48764, type: 3}
-  - {fileID: 8300000, guid: 0640407d781086d4cbf2b40abcaf67da, type: 3}
-  - {fileID: 8300000, guid: f5be1b2084075334c892e3369135d214, type: 3}
-  - {fileID: 8300000, guid: e2b1fa7a3cd9ffa4e824d8b89c777432, type: 3}
+  - {fileID: 8300000, guid: 9c8204738c6e2a24aa14c17fc12f3bb5, type: 3}
+  - {fileID: 8300000, guid: a07ea9e3d7ff50e4f95681e08d92bbcd, type: 3}
+  - {fileID: 8300000, guid: c5f71a236e79e714e974dce787c107e3, type: 3}
+  - {fileID: 8300000, guid: 9c47b82141087e9489bb73fb5d19dacb, type: 3}
+  - {fileID: 8300000, guid: 5595e83a7028330449a1311f2d75e555, type: 3}
+  - {fileID: 8300000, guid: cc69f338f8c75704eb6f149929d8c1b0, type: 3}
+  - {fileID: 8300000, guid: 9bf87e1184cbb6d4ab738d49bc055043, type: 3}
+  - {fileID: 8300000, guid: 6fb45b162e4759941bb6dd5956d2ae37, type: 3}
+  - {fileID: 8300000, guid: 20d124bea56e0ef42b5fb361c0b40581, type: 3}
+  - {fileID: 8300000, guid: 410572f1d69491f46ba6566fed096eb1, type: 3}
+  - {fileID: 8300000, guid: acd5e3ef8b237f34a9a4e6364268b288, type: 3}
+  - {fileID: 8300000, guid: 741d9d998d69dbc4398735fcac02403c, type: 3}
+  - {fileID: 8300000, guid: b92d24fb9957f18418712f53535bd6f0, type: 3}
+  - {fileID: 8300000, guid: 634a8ceff64114d489415ffc006498cc, type: 3}
+  - {fileID: 8300000, guid: 2af0cff11dc183e4ea93b0d7dbe46e17, type: 3}
+  - {fileID: 8300000, guid: 431bd4a6e68a6c6459705ef2029da23b, type: 3}
+  - {fileID: 8300000, guid: adc5f56340c60ef40be268a66478613f, type: 3}
+  - {fileID: 8300000, guid: cbb9cc62b7a90d34091e6fd923caf0af, type: 3}
+  - {fileID: 8300000, guid: 79bb1ca467e26704d82ddfa385e00744, type: 3}
+  - {fileID: 8300000, guid: e89b886a060ba5f4b860c81f44039307, type: 3}
+  - {fileID: 8300000, guid: 24ec4d0ca8db3924686f487af2ba5ca9, type: 3}
+  - {fileID: 8300000, guid: 6d4a8760ffffd424980098b961c351c4, type: 3}
   failNotes:
-  - {fileID: 8300000, guid: 8a44f9a10b989214bba1251f03617710, type: 3}
+  - {fileID: 8300000, guid: f4b61df5730fce746b68ddaed7563fdc, type: 3}
   comboNotes:
   - {fileID: 8300000, guid: 277f195a3d151ad4793bed29f1570b90, type: 3}
   - {fileID: 8300000, guid: 88f01fd255c7fc14b9836f262596cd77, type: 3}
@@ -23611,6 +23628,7 @@ MonoBehaviour:
   combo: {fileID: 1791951466}
   ready: {fileID: 410352826}
   gameStarted: 0
+  waitTime: 0
   musicIndex: 0
   failIndex: 0
   failLimit: 0
